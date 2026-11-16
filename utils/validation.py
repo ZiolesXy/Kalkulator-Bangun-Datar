@@ -37,27 +37,3 @@ def cek_angka_positif(prompt):
             return value
 
         print("Nilai harus lebih besar dari 0.")
-
-
-def cek_angka_negatif(prompt):
-    while True:
-        nilai = cek_angka(prompt)
-
-        if nilai >= 0:
-            return nilai
-
-        print("Nilai tidak boleh negatif.")
-
-
-def cek_bilangan_asli(prompt):
-    while True:
-        try:
-            nilai = int(input(prompt).strip())
-
-            if nilai > 0:
-                return nilai
-
-            print("Jumlah harus lebih besar dari 0.")
-
-        except ValueError:
-            print("Masukkan bilangan bulat positif.")
