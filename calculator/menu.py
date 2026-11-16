@@ -67,7 +67,7 @@ def hitung_bangun(pilihan):
             "Alas": alas,
             "Sisi Miring": sisi_miring,
             "Tinggi": tinggi
-        }
+        }, keliling, luas
 
     if pilihan == "6":
         sisi1 = cek_angka_positif("Masukan Sisi ke-1 (cm) : ")
