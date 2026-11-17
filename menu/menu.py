@@ -1,5 +1,5 @@
 from utils.display import print_judul, print_garis, pause
-from calculator.menu import simpan_excel, hitung_bangun
+from calculator.menu import simpan_excel, hitung_bangun_datar, hitung_bangun_ruang
 from utils.validation import pilihan_menu
 import time
 
@@ -10,21 +10,24 @@ def main_menu():
         print_garis()
 
         print("[1] Kalkulator Bangun Datar")
-        print("[2] Tentang Aplikasi")
+        print("[2] Kalkulator Bangun Ruang")
+        print("[3] Tentang Aplikasi")
         print("[0] Keluar")
 
-        valid = ("1", "2", "0")
+        valid = ("1", "2", "3", "0")
         pilihan = pilihan_menu("Masukan Pilihan Anda: ", valid)
 
         if pilihan == "1":
-            menu_kalkulator()
+            menu_kalkulator_datar()
         elif pilihan == "2":
+            menu_kalkulator_ruang()
+        elif pilihan == "3":
             menu_about()
         elif pilihan == "0":
             print_judul("TERIMA KASIH")
             break
 
-def menu_kalkulator():
+def menu_kalkulator_datar():
     riwayat_perhitungan = []
     while True:
         print_judul("PENGHITUNG LUAS DAN KELILING BANGUN DATAR")
@@ -56,7 +59,7 @@ def menu_kalkulator():
 
         while True:
             try:
-                nama_bangun, detail, keliling, luas = hitung_bangun(pilihan)
+                nama_bangun, detail, keliling, luas = hitung_bangun_datar(pilihan)
                 print_judul("HASIL PERHITUNGAN")
 
                 for label, value in detail.items():
@@ -83,6 +86,74 @@ def menu_kalkulator():
             valid = ("0", "1", "2")
             aksi = pilihan_menu("Pilih Aksi : ", valid)
 
+            if aksi == "1":
+                continue
+            elif aksi == "2":
+                break
+            elif aksi == "0":
+                return
+
+def menu_kalkulator_ruang():
+    riwayat_perhitungan = []
+    while True:
+        print_judul("PENGHITUNG LUAS PERMUKAAN DAN VOLUME BANGUN RUANG")
+
+        print("[1] Kubus")
+        print("[2] Balok")
+        print("[3] Tabung")
+        print("[4] Kerucut")
+        print("[5] Bola")
+        print("[6] Prisma Segitiga")
+        print("[7] Limas Segitiga")
+        print("[8] Limas Segiempat")
+        print("[9] Simpan Ke Excel")
+        print("[10] Bersihkan Excel")
+        print("[0] Kembali ke Menu Utama")
+
+        print_garis()
+
+        valid = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+
+        pilihan = pilihan_menu("Pilih Bangun Ruang : ", valid)
+        if pilihan == "0":
+            return
+        elif pilihan == "9":
+            simpan_excel(riwayat_perhitungan,
+            "hasil_perhitungan_bangun_ruang")
+            continue
+        elif pilihan == "10":
+            riwayat_perhitungan.clear
+            continue
+
+        while True:
+            try:
+                nama_bangun, detail, luas_permukaan, volume = hitung_bangun_ruang(pilihan)
+                print_judul("HASIL PERHITUNGAN")
+
+                for label, value in detail.items():
+                    print(f"{label:<15}: {value:g} cm")
+
+                print(f"Luas Permukaan : {luas_permukaan:.2f}")
+                print(f"Volume         : {volume:.2f}")
+
+                data_baru = {"Bangun Ruang": nama_bangun}
+                data_baru.update(detail)
+                data_baru["Luas Permukaan (cm2)"] = round(luas_permukaan, 2)
+                data_baru["Volume (cm3)"] = round(volume, 2)
+                riwayat_perhitungan.append(data_baru)
+
+                print_garis()
+
+            except ValueError as error:
+                print(f"Perhitungan Gagal: {error}")
+
+            print("[1] Hitung Lagi")
+            print("[2] Pilih Bangun Lain")
+            print("[0] Menu Utama")
+        
+            valid = ("0", "1", "2")
+            aksi = pilihan_menu("Pilih Aksi : ", valid)
+        
             if aksi == "1":
                 continue
             elif aksi == "2":
