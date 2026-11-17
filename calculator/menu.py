@@ -108,7 +108,6 @@ def simpan_excel(riwayat_data):
     df.to_excel(nama_file, index=False)
     print(f"Berhasil menyimpan data ke file: {nama_file}")
 
-def menu_kalkulator():
     riwayat_perhitungan = []
     while True:
         print_judul("PENGHITUNG LUAS DAN KELILING BANGUN DATAR")
