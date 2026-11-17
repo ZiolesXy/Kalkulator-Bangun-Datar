@@ -48,7 +48,7 @@ def menu_kalkulator():
         if pilihan == "0":
             return
         elif pilihan == "8":
-            simpan_excel(riwayat_perhitungan)
+            simpan_excel(riwayat_perhitungan, "hasil_perhitungan_bangun_datar")
             continue
         elif pilihan == "9":
             riwayat_perhitungan.clear

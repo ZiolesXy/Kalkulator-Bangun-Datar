@@ -99,11 +99,11 @@ def hitung_bangun(pilihan):
             "Sisi": sisi
         }, keliling, luas
 
-def simpan_excel(riwayat_data):
+def simpan_excel(riwayat_data, nama_file):
     if not riwayat_data:
         return
 
     df = pd.DataFrame(riwayat_data)
-    nama_file = "data/hasil_perhitungan_bangun_datar.xlsx"
-    df.to_excel(nama_file, index=False)
-    print(f"Berhasil menyimpan data ke file: {nama_file}")
+    direktori = f"data/{nama_file}.xlsx"
+    df.to_excel(direktori, index=False)
+    print(f"Berhasil menyimpan data ke file: {direktori}")
