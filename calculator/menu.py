@@ -79,8 +79,8 @@ def hitung_bangun_datar(pilihan):
         }, keliling, luas
 
     elif pilihan == "6":
-        sisi1 = cek_angka_positif("Masukan Sisi ke-1 (cm) : ")
-        sisi2 = cek_angka_positif("Masukan Sisi ke-2 (cm) : ")
+        sisi1 = cek_angka_positif("Masukan Sisi Sejajar ke-1 (cm) : ")
+        sisi2 = cek_angka_positif("Masukan Sisi Sejajar ke-2 (cm) : ")
         sisi3 = cek_angka_positif("Masukan Sisi ke-3 (cm) : ")
         sisi4 = cek_angka_positif("Masukan Sisi ke-4 (cm) : ")
         tinggi = cek_angka_positif("Masukan Tinggi (cm) : ")
@@ -88,8 +88,8 @@ def hitung_bangun_datar(pilihan):
         keliling, luas = hitung_trapesium(sisi1, sisi2, sisi3, sisi4, tinggi)
 
         return "Trapesium", {
-            "Sisi 1": sisi1,
-            "Sisi 2": sisi2,
+            "Sisi Sejajar 1": sisi1,
+            "Sisi Sejajar 2": sisi2,
             "Sisi 3": sisi3,
             "Sisi 4": sisi4,
             "Tinggi": tinggi

@@ -54,7 +54,8 @@ def menu_kalkulator_datar():
             simpan_excel(riwayat_perhitungan, "hasil_perhitungan_bangun_datar")
             continue
         elif pilihan == "9":
-            riwayat_perhitungan.clear
+            riwayat_perhitungan.clear()
+            print("Riwayat perhitungan berhasil dibersihkan.")
             continue
 
         while True:
@@ -122,7 +123,8 @@ def menu_kalkulator_ruang():
             "hasil_perhitungan_bangun_ruang")
             continue
         elif pilihan == "10":
-            riwayat_perhitungan.clear
+            riwayat_perhitungan.clear()
+            print("Riwayat perhitungan berhasil dibersihkan.")
             continue
 
         while True:
@@ -164,7 +166,7 @@ def menu_kalkulator_ruang():
 def menu_about():
     print_judul("TENTANG APLIKASI")
     
-    print("Ini adalah Aplikasi peghitung bangun datar/ruang luar yang \ndilengkapi oleh fitur simpan ke xlsx")
+    print("Ini adalah Aplikasi penghitung bangun datar/ruang yang \ndilengkapi oleh fitur simpan ke xlsx")
     print_garis()
     print("Aplikasi ini dibangun oleh : ")
     print_garis()

@@ -37,7 +37,7 @@ def hitung_jajar_genjang(alas, sisi_miring, tinggi):
 
 def hitung_trapesium(sisi1, sisi2, sisi3, sisi4, tinggi):
     keliling = sisi1 + sisi2 + sisi3 + sisi4
-    luas = (sisi1 + sisi2) * tinggi
+    luas = ((sisi1 + sisi2) * tinggi) / 2
 
     return keliling, luas
 
