@@ -133,8 +133,8 @@ def menu_kalkulator_ruang():
                 for label, value in detail.items():
                     print(f"{label:<15}: {value:g} cm")
 
-                print(f"Luas Permukaan : {luas_permukaan:.2f}")
-                print(f"Volume         : {volume:.2f}")
+                print(f"Luas Permukaan : {luas_permukaan:.2f} cm2")
+                print(f"Volume         : {volume:.2f} cm3")
 
                 data_baru = {"Bangun Ruang": nama_bangun}
                 data_baru.update(detail)
@@ -164,7 +164,7 @@ def menu_kalkulator_ruang():
 def menu_about():
     print_judul("TENTANG APLIKASI")
     
-    print("Ini adalah Aplikasi peghitung luas dan keliling dari suatu \nbangun luar yang dilengkapi oleh fitur simpan ke xlsx")
+    print("Ini adalah Aplikasi peghitung bangun datar/ruang luar yang \ndilengkapi oleh fitur simpan ke xlsx")
     print_garis()
     print("Aplikasi ini dibangun oleh : ")
     print_garis()
