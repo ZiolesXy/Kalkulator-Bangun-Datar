@@ -14,7 +14,9 @@ import builtins
 import contextlib
 import io
 import os
+import shutil
 import sys
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -140,7 +142,12 @@ XLSX_RUANG = os.path.join(DATA, "hasil_perhitungan_bangun_ruang.xlsx")
 
 for berkas in (XLSX_DATAR, XLSX_RUANG):
     if os.path.exists(berkas):
-        os.remove(berkas)
+        cadangan = os.path.join(
+            DATA, "_cadangan_sebelum_uji_" + time.strftime("%Y%m%d-%H%M%S")
+        )
+        os.makedirs(cadangan, exist_ok=True)
+        shutil.move(berkas, os.path.join(cadangan, os.path.basename(berkas)))
+        print(f"File lama diamankan ke: {cadangan}")
 
 # C3 - simpan saat riwayat kosong (dijalankan lebih dulu agar bisa dipastikan file tidak dibuat)
 keluaran = jalankan_skrip(["1", "8", "0"])
@@ -217,4 +224,8 @@ if gagal:
     print("\nYang gagal:")
     for kode, nama, _, bukti in gagal:
         print(f"- {kode} {nama}: {bukti}")
+
+print(f"\nBerkas .xlsx hasil uji: {DATA}")
+print("Bila sebelumnya sudah ada berkas, salinannya dipindahkan ke subfolder")
+print("data/_cadangan_sebelum_uji_<tanggal-jam>/ dan tidak dihapus.")
 sys.exit(0 if not gagal else 1)
