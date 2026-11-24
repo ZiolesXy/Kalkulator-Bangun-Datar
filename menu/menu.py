@@ -40,7 +40,7 @@ def menu_kalkulator_datar():
         print("[6] Trapesium")
         print("[7] Belah Ketupat")
         print("[8] Simpan Ke Excel")
-        print("[9] Bersihkan Excel")
+        print("[9] Bersihkan Riwayat")
         print("[0] Kembali ke Menu Utama")
 
         print_garis()
@@ -108,7 +108,7 @@ def menu_kalkulator_ruang():
         print("[7] Limas Segitiga")
         print("[8] Limas Segiempat")
         print("[9] Simpan Ke Excel")
-        print("[10] Bersihkan Excel")
+        print("[10] Bersihkan Riwayat")
         print("[0] Kembali ke Menu Utama")
 
         print_garis()
